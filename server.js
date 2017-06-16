@@ -15,7 +15,7 @@ app.get('/country/:country', function(req, res) {
     } else if (JSON.parse(body).error) {
       res.status(500).json({error: JSON.parse(body).message});
     } else {
-      res.status(200).json(body);
+      res.status(200).json(JSON.parse(body));
     }
   })
 })
