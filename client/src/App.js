@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Track from './Track';
+import JQVMap from './JQVMap';
 
 class App extends Component {
   constructor(props) {
@@ -29,8 +30,9 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-          <button onClick={this.getTracks}>Click</button>
-          {this.state.tracks.map((track) => <Track key={track.rank} track={track}/>)}
+        <JQVMap text="thdlkd"/>
+        <button onClick={this.getTracks}>Click</button>
+        {this.state.tracks.map((track) => <Track key={track.rank} track={track}/>)}
       </div>
     );
   }
