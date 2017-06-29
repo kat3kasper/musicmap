@@ -7,9 +7,12 @@ import $ from 'jquery';
 
 class JQVMap extends Component {
 
-
   componentDidMount() {
-    $(ReactDOM.findDOMNode(this)).vectorMap({backgroundColor: '#ffffff', enableZoom: true});
+    $(ReactDOM.findDOMNode(this)).vectorMap({
+      backgroundColor: '#ffffff',
+      enableZoom: true,
+      onRegionClick: this.props.countryClickedFunction
+    });
   }
 
   render() {

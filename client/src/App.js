@@ -7,17 +7,22 @@ import JQVMap from './JQVMap';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {tracks: []};
+    this.state = {tracks: [], country: null};
     this.getTracks = this.getTracks.bind(this);
+    this.countryClickedFunction = this.countryClickedFunction.bind(this);
   }
 
-  getTracks() {
-    const country="colombia";
-    console.log("tracks clicked");
+  getTracks(country) {
+    console.log("country clicked", country);
+    this.setState({country: country});
     fetch(`/api/country/${country}`).then(response => response.json()).then(response => {
       console.log("tracks ", response);
       this.setState({tracks: response.tracks});
     })
+  }
+
+  countryClickedFunction(element, code, region) {
+    this.getTracks(region);
   }
 
   render() {
@@ -30,8 +35,8 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <JQVMap text="thdlkd"/>
-        <button onClick={this.getTracks}>Click</button>
+        <JQVMap countryClickedFunction={this.countryClickedFunction}/>
+        {this.state.country}
         {this.state.tracks.map((track) => <Track key={track.rank} track={track}/>)}
       </div>
     );
