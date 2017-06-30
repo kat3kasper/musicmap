@@ -7,7 +7,7 @@ import JQVMap from './JQVMap';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {tracks: [], country: null};
+    this.state = {tracks: [], country: null, errorMessage: null};
     this.getTracks = this.getTracks.bind(this);
     this.countryClickedFunction = this.countryClickedFunction.bind(this);
   }
@@ -15,10 +15,16 @@ class App extends Component {
   getTracks(country) {
     console.log("country clicked", country);
     this.setState({country: country});
-    fetch(`/api/country/${country}`).then(response => response.json()).then(response => {
-      console.log("tracks ", response);
-      this.setState({tracks: response.tracks});
-    })
+    fetch(`/api/country/${country}`)
+      .then(response => response.json()
+        .then(json => {
+          if (json.error) {
+            this.setState({tracks: null, errorMessage: `No music information found`});
+          } else {
+            this.setState({tracks: json.tracks, errorMessage: null});
+        }
+      })
+    );
   }
 
   countryClickedFunction(element, code, region) {
@@ -34,6 +40,7 @@ class App extends Component {
         <JQVMap countryClickedFunction={this.countryClickedFunction}/>
         {this.state.country}
         {this.state.tracks && this.state.tracks.map((track) => <Track key={track.rank} track={track}/>)}
+        <div>{this.state.errorMessage}</div>
       </div>
     );
   }
