@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import './App.css';
 import Track from './Track';
 import JQVMap from './JQVMap';
+import './App.css';
 
 class App extends Component {
   constructor(props) {
@@ -34,11 +34,11 @@ class App extends Component {
       <div className="App">
         <div className="content">
           <div className="App-header">
-            <h2>Music Around The World</h2>
-            <h2>Click on a country to see its top tracks</h2>
+            <div className="h1 mepp">Music Around The World</div>
+            <div className="h4 app-info">Click on a country to see its top tracks</div>
           </div>
           <JQVMap countryClickedFunction={this.countryClickedFunction}/>
-          {this.state.country}
+          <div className="country h2">{this.state.country}</div>
           {this.state.tracks && this.state.tracks.map((track) => <Track key={track.rank} track={track}/>)}
           <div>{this.state.errorMessage}</div>
         </div>
