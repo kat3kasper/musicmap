@@ -31,8 +31,8 @@ class JQVMap extends Component {
     return (
       <div className="JQVMap">
         <div id="vmap"></div>
-        <button onClick={this.zoomOut}>Zoom Out</button>
-        <button onClick={this.zoomIn}>Zoom In</button>
+        <span onClick={this.zoomOut} className="glyphicon glyphicon-minus zoom-out" aria-hidden="true"></span>
+        <span onClick={this.zoomIn} className="glyphicon glyphicon-plus zoom-in" aria-hidden="true"></span>
       </div>
     );
   }

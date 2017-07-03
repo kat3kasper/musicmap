@@ -2,3 +2,13 @@
   width: 100vw;
   height: 50vh;
 }
+
+.zoom-out {
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.zoom-in {
+  padding: 1rem;
+  cursor: pointer;
+}
