@@ -13,15 +13,13 @@ class App extends Component {
   }
 
   getTracks(country) {
-    console.log("country clicked", country);
-    this.setState({country: country});
     fetch(`/api/country/${country}`)
       .then(response => response.json()
         .then(json => {
           if (json.error) {
-            this.setState({tracks: null, errorMessage: `No music information found`});
+            this.setState({country: country, tracks: null, errorMessage: `No music information found`});
           } else {
-            this.setState({tracks: json.tracks, errorMessage: null});
+            this.setState({country: country, tracks: json.tracks, errorMessage: null});
         }
       })
     );
@@ -34,13 +32,19 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <h2>Music Map</h2>
+        <div className="content">
+          <div className="App-header">
+            <h2>Music Around The World</h2>
+            <h2>Click on a country to see its top tracks</h2>
+          </div>
+          <JQVMap countryClickedFunction={this.countryClickedFunction}/>
+          {this.state.country}
+          {this.state.tracks && this.state.tracks.map((track) => <Track key={track.rank} track={track}/>)}
+          <div>{this.state.errorMessage}</div>
         </div>
-        <JQVMap countryClickedFunction={this.countryClickedFunction}/>
-        {this.state.country}
-        {this.state.tracks && this.state.tracks.map((track) => <Track key={track.rank} track={track}/>)}
-        <div>{this.state.errorMessage}</div>
+        <footer>
+          Powered by Last.FM
+        </footer>
       </div>
     );
   }
