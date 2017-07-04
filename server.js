@@ -1,25 +1,13 @@
 const express = require('express')
 const request = require('request')
-const path = require('path')
 require('dotenv').config()
 const app = express()
 
 app.set('port', (process.env.PORT || 3001));
 
-
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
 }
-
-
-// app.get('/', function (req, res) {
-//   res.send('Hello World!')
-// })
-
-
-// app.get('/', function (req, res) {
-//   res.sendFile(path.join(__dirname, './client/build', 'index.html'));
-// });
 
 function formatTracks(body) {
   let tracks = [];
