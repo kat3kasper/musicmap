@@ -2,11 +2,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 1rem 0;
 }
 .rank {
   padding-right: 1rem;
   align-self: flex-start;
 }
+
 .info {
   min-width: 400px;
 }
