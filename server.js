@@ -9,9 +9,9 @@ if (process.env.NODE_ENV === 'production') {
 
 app.set('port', (process.env.PORT || 3001));
 
-app.get('/', function (req, res) {
-  res.send('Hello World!')
-})
+// app.get('/', function (req, res) {
+//   res.send('Hello World!')
+// })
 
 function formatTracks(body) {
   let tracks = [];
