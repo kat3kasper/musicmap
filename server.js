@@ -3,6 +3,10 @@ const request = require('request')
 require('dotenv').config()
 const app = express()
 
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build'));
+}
+
 app.set('port', (process.env.PORT || 3001));
 
 app.get('/', function (req, res) {
