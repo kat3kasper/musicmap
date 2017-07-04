@@ -13,6 +13,11 @@ app.set('port', (process.env.PORT || 3001));
 //   res.send('Hello World!')
 // })
 
+
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+});
+
 function formatTracks(body) {
   let tracks = [];
   let jsonBody = JSON.parse(body)
