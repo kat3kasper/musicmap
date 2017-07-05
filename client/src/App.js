@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import Track from './Track';
 import JQVMap from './JQVMap';
 import './App.css';
