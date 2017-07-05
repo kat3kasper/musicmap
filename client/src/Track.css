@@ -1,16 +1,23 @@
 .Track {
+  max-width: 70%;
+  margin: 0 15% .5rem;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  padding: 1rem 0;
+  /*background-color: #040808;*/
+  /*background-color: #091010;*/
+  background-color: #1e1e1e;
+  border-right: red solid;
 }
+
 .rank {
-  padding-right: 1rem;
+  padding: 0 1rem;
   align-self: flex-start;
 }
 
 .info {
-  min-width: 400px;
+  flex-grow: 1;
+  padding-left: 1rem;
 }
 
 .track-name {
@@ -19,6 +26,10 @@
 
 .track-artist {
   font-size: 2rem;
+}
+
+.listenerInfo {
+  padding-right: 1rem;
 }
 
 .track-listeners-label {
