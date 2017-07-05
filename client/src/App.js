@@ -39,6 +39,7 @@ class App extends Component {
           </div>
           <JQVMap countryClickedFunction={this.countryClickedFunction}/>
           <div className="country h2">{this.state.country}</div>
+          {this.state.country && <div className="hr-red"/>}
           <div className="tracks">
             {this.state.tracks && this.state.tracks.map((track) => <Track key={track.rank} track={track}/>)}
           </div>
