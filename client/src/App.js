@@ -34,7 +34,7 @@ class App extends Component {
       <div className="App">
         <div className="content">
           <div className="App-header">
-            <div className="h1 mepp">Music Around The World</div>
+            <div className="h1">Music Around The World</div>
             <div className="h4 app-info">Click on a country to see its top tracks</div>
           </div>
           <JQVMap countryClickedFunction={this.countryClickedFunction}/>

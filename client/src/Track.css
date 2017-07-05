@@ -4,10 +4,8 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  /*background-color: #040808;*/
-  /*background-color: #091010;*/
   background-color: #1e1e1e;
-  border-right: red solid;
+  border-right: #b80610 solid;
 }
 
 .rank {
