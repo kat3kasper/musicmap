@@ -8,7 +8,10 @@ class JQVMap extends Component {
 
   componentDidMount() {
     $('#vmap').vectorMap({
-      backgroundColor: '#ffffff',
+      backgroundColor: '#091010',
+      color: '#666666',
+      selectedColor: '#9f050e',
+      hoverColor: '#b80610',
       enableZoom: true,
       onRegionClick: this.props.countryClickedFunction,
       onLabelShow: this.onLabelShow
